@@ -1,0 +1,42 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function isOwnDocument(userId) {
+      return signedIn() && request.auth.uid == userId;
+    }
+
+    function isMainAdminBootstrap(userId) {
+      return isOwnDocument(userId)
+        && request.auth.token.email == "abirxxdbrine2024@gmail.com"
+        && request.resource.data.email == "abirxxdbrine2024@gmail.com"
+        && request.resource.data.name == "Abir Biswas"
+        && request.resource.data.role == "Director"
+        && request.resource.data.status == "approved"
+        && request.resource.data.isAdmin == true;
+    }
+
+    function isDirector() {
+      return signedIn()
+        && exists(/databases/$(database)/documents/users/$(request.auth.uid))
+        && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == "Director"
+        && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.status == "approved";
+    }
+
+    match /users/{userId} {
+      allow read: if isOwnDocument(userId) || isDirector();
+      allow create: if isOwnDocument(userId);
+      allow update: if isDirector() || isMainAdminBootstrap(userId);
+    }
+
+    match /applications/{userId} {
+      allow create: if isOwnDocument(userId);
+      allow read: if isOwnDocument(userId) || isDirector();
+      allow update: if isDirector() || isMainAdminBootstrap(userId);
+    }
+  }
+}

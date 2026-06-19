@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+        <link rel="icon" href="Logo.png" type="image/png">
+        <link rel="stylesheet" href="style.css">
+        <title>Admin Dashboard | The Media Hub</title>
+    </head>
+    <body class="admin-page">
+        <nav class="topbar">
+            <div class="logo-seg">
+                <a href="index.html">
+                    <img src="Logo.png" alt="The Media Hub logo">
+                </a>
+            </div>
+
+            <div class="nav-seg">
+                <a href="index.html#home">Home</a>
+                <a href="index.html#works">Works</a>
+                <a href="index.html#contact">Contact</a>
+            </div>
+
+            <div class="btn-seg">
+                <a href="call.html" rel="noopener noreferrer">
+                    <button>Call Us!</button>
+                </a>
+            </div>
+        </nav>
+
+        <section class="hero admin-hero">
+            <div class="call-hero-mark">
+                <img src="Logo.png" alt="The Media Hub logo">
+            </div>
+            <div class="hero-text">
+                <p class="eyebrow"><i class="fa-solid fa-shield-halved"></i> Admin access</p>
+                <h1>Admin Dashboard</h1>
+                <h4>Register for access, sign in, and manage Media Hub applications from one control panel.</h4>
+            </div>
+        </section>
+
+        <section class="admin-auth" id="adminAuth">
+            <div class="admin-card">
+                <div class="admin-tabs" role="tablist" aria-label="Admin access tabs">
+                    <button class="admin-tab is-active" type="button" data-tab="register" role="tab" aria-selected="true">
+                        <i class="fa-solid fa-user-plus"></i>
+                        Register
+                    </button>
+                    <button class="admin-tab" type="button" data-tab="login" role="tab" aria-selected="false">
+                        <i class="fa-solid fa-right-to-bracket"></i>
+                        Login
+                    </button>
+                </div>
+
+                <form class="admin-form is-active" id="registerForm" data-panel="register">
+                    <div class="form-header">
+                        <img src="Logo.png" alt="The Media Hub logo">
+                        <div>
+                            <p>Application</p>
+                            <h2>Create an admin request.</h2>
+                        </div>
+                    </div>
+
+                    <div class="admin-form-grid">
+                        <div class="form-group">
+                            <label for="registerEmail"><i class="fa-solid fa-envelope"></i>Email</label>
+                            <input id="registerEmail" name="email" type="email" autocomplete="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="registerName"><i class="fa-solid fa-user"></i>Name</label>
+                            <input id="registerName" name="name" type="text" autocomplete="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="registerPassword"><i class="fa-solid fa-lock"></i>Password</label>
+                            <div class="password-field">
+                                <input id="registerPassword" name="password" type="password" autocomplete="new-password" required>
+                                <button type="button" class="toggle-password" data-target="registerPassword" aria-label="Show registration password">
+                                    <i class="fa-solid fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="registerClass"><i class="fa-solid fa-school"></i>Class</label>
+                            <div class="select-shell">
+                                <select id="registerClass" name="class" required>
+                                    <option value="">Select class</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                </select>
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="registerRoll"><i class="fa-solid fa-hashtag"></i>Roll</label>
+                            <div class="select-shell">
+                                <select id="registerRoll" name="roll" required>
+                                    <option value="">Select roll</option>
+                                </select>
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="registerSection"><i class="fa-solid fa-layer-group"></i>Section</label>
+                            <div class="select-shell">
+                                <select id="registerSection" name="section" required>
+                                    <option value="">Select section</option>
+                                    <option value="A">A</option>
+                                    <option value="B">B</option>
+                                    <option value="C">C</option>
+                                </select>
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="submit-request" type="submit">
+                        <i class="fa-solid fa-paper-plane"></i>
+                        Register
+                    </button>
+                </form>
+
+                <form class="admin-form" id="loginForm" data-panel="login">
+                    <div class="form-header">
+                        <img src="Logo.png" alt="The Media Hub logo">
+                        <div>
+                            <p>Director login</p>
+                            <h2>Admins only.</h2>
+                        </div>
+                    </div>
+
+                    <div class="admin-form-grid single">
+                        <div class="form-group">
+                            <label for="loginEmail"><i class="fa-solid fa-envelope"></i>Email</label>
+                            <input id="loginEmail" name="email" type="email" autocomplete="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="loginPassword"><i class="fa-solid fa-lock"></i>Password</label>
+                            <div class="password-field">
+                                <input id="loginPassword" name="password" type="password" autocomplete="current-password" required>
+                                <button type="button" class="toggle-password" data-target="loginPassword" aria-label="Show login password">
+                                    <i class="fa-solid fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="submit-request" type="submit">
+                        <i class="fa-solid fa-unlock-keyhole"></i>
+                        Login
+                    </button>
+                </form>
+
+                <p class="admin-message" id="authMessage" aria-live="polite"></p>
+            </div>
+        </section>
+
+        <section class="admin-dashboard is-hidden" id="dashboard">
+            <div class="dashboard-heading">
+                <div>
+                    <p class="section-kicker">Control room</p>
+                    <h1>Applications</h1>
+                </div>
+                <div class="dashboard-user">
+                    <span id="currentAdminName">Admin</span>
+                    <button type="button" id="logoutButton">
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                        Logout
+                    </button>
+                </div>
+            </div>
+
+            <div class="application-list" id="applicationList">
+                <p class="empty-state"><i class="fa-regular fa-folder-open"></i>No applications loaded yet.</p>
+            </div>
+
+            <div class="content-editor">
+                <div class="dashboard-heading compact">
+                    <div>
+                        <p class="section-kicker">Site editor</p>
+                        <h1>Content</h1>
+                    </div>
+                </div>
+
+                <div class="editor-card">
+                    <div class="admin-tabs editor-tabs" role="tablist" aria-label="Site content tabs">
+                        <button class="admin-tab is-active" type="button" data-editor-tab="index">
+                            <i class="fa-solid fa-house"></i>
+                            Index
+                        </button>
+                        <button class="admin-tab" type="button" data-editor-tab="works">
+                            <i class="fa-solid fa-briefcase"></i>
+                            Works
+                        </button>
+                        <button class="admin-tab" type="button" data-editor-tab="contact">
+                            <i class="fa-solid fa-address-card"></i>
+                            Contact
+                        </button>
+                    </div>
+
+                    <div class="editor-panel is-active" data-editor-panel="index">
+                        <div class="form-header">
+                            <img src="Logo.png" alt="The Media Hub logo">
+                            <div>
+                                <p>Index page</p>
+                                <h2>Edit team and home sections.</h2>
+                            </div>
+                        </div>
+                        <div class="admin-form-grid">
+                            <div class="form-group">
+                                <label for="teamTitle"><i class="fa-solid fa-users"></i>Team title</label>
+                                <input id="teamTitle" type="text">
+                            </div>
+                            <div class="form-group">
+                                <label for="teamImage"><i class="fa-solid fa-image"></i>Team image URL</label>
+                                <input id="teamImage" type="url">
+                            </div>
+                            <div class="form-group full">
+                                <label for="teamText"><i class="fa-solid fa-align-left"></i>Team text</label>
+                                <textarea id="teamText"></textarea>
+                            </div>
+                        </div>
+                        <div class="editor-list-heading">
+                            <h3>Extra sections</h3>
+                            <button type="button" class="mini-action" id="addIndexSection"><i class="fa-solid fa-plus"></i>Add section</button>
+                        </div>
+                        <div class="editor-list" id="indexSectionsEditor"></div>
+                        <button class="submit-request" type="button" id="saveIndexContent"><i class="fa-solid fa-floppy-disk"></i>Save index</button>
+                    </div>
+
+                    <div class="editor-panel" data-editor-panel="works">
+                        <div class="form-header">
+                            <img src="Logo.png" alt="The Media Hub logo">
+                            <div>
+                                <p>Works page</p>
+                                <h2>Edit filters, clubs, and work cards.</h2>
+                            </div>
+                        </div>
+                        <div class="editor-list-heading">
+                            <h3>Filters</h3>
+                            <button type="button" class="mini-action" id="addFilter"><i class="fa-solid fa-plus"></i>Add filter</button>
+                        </div>
+                        <div class="editor-list compact-list" id="filtersEditor"></div>
+                        <div class="editor-list-heading">
+                            <h3>Clubs</h3>
+                            <button type="button" class="mini-action" id="addClub"><i class="fa-solid fa-plus"></i>Add club</button>
+                        </div>
+                        <div class="editor-list compact-list" id="clubsEditor"></div>
+                        <div class="editor-list-heading">
+                            <h3>Works</h3>
+                            <button type="button" class="mini-action" id="addWork"><i class="fa-solid fa-plus"></i>Add work</button>
+                        </div>
+                        <div class="editor-list" id="worksEditor"></div>
+                        <button class="submit-request" type="button" id="saveWorksContent"><i class="fa-solid fa-floppy-disk"></i>Save works</button>
+                    </div>
+
+                    <div class="editor-panel" data-editor-panel="contact">
+                        <div class="form-header">
+                            <img src="Logo.png" alt="The Media Hub logo">
+                            <div>
+                                <p>Contact and call</p>
+                                <h2>Edit contact cards and call page text.</h2>
+                            </div>
+                        </div>
+                        <div class="editor-list-heading">
+                            <h3>Contact cards</h3>
+                            <button type="button" class="mini-action" id="addContactCard"><i class="fa-solid fa-plus"></i>Add card</button>
+                        </div>
+                        <div class="editor-list" id="contactCardsEditor"></div>
+                        <div class="admin-form-grid">
+                            <div class="form-group">
+                                <label for="callTitle"><i class="fa-solid fa-heading"></i>Call title</label>
+                                <input id="callTitle" type="text">
+                            </div>
+                            <div class="form-group">
+                                <label for="callEmail"><i class="fa-solid fa-envelope"></i>Call email</label>
+                                <input id="callEmail" type="email">
+                            </div>
+                            <div class="form-group full">
+                                <label for="callIntro"><i class="fa-solid fa-align-left"></i>Call intro</label>
+                                <textarea id="callIntro"></textarea>
+                            </div>
+                            <div class="form-group full">
+                                <label for="callSteps"><i class="fa-solid fa-list-ol"></i>Call steps, one per line</label>
+                                <textarea id="callSteps"></textarea>
+                            </div>
+                        </div>
+                        <button class="submit-request" type="button" id="saveContactContent"><i class="fa-solid fa-floppy-disk"></i>Save contact</button>
+                    </div>
+
+                    <p class="admin-message" id="contentMessage" aria-live="polite"></p>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="footer-logo">
+                <img src="Logo.png" alt="The Media Hub logo">
+            </div>
+            <div class="footer-text">
+                <p>&copy; 2026 The Media Hub. All rights reserved.</p>
+                <p><a href="admin-dashboard.html">Admin Dashboard</a></p>
+            </div>
+        </footer>
+
+        <script src="script.js"></script>
+        <script type="module">
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
+            import {
+                getAuth,
+                createUserWithEmailAndPassword,
+                signInWithEmailAndPassword,
+                signOut,
+                onAuthStateChanged
+            } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-auth.js";
+            import {
+                getFirestore,
+                collection,
+                doc,
+                getDoc,
+                onSnapshot,
+                query,
+                serverTimestamp,
+                setDoc,
+                updateDoc,
+                deleteDoc
+            } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
+
+            const firebaseConfig = {
+                apiKey: "AIzaSyCGWo53Pcgk2VyUptxH1yURo4fvreX-zOk",
+                authDomain: "the-media-hub.firebaseapp.com",
+                projectId: "the-media-hub",
+                storageBucket: "the-media-hub.firebasestorage.app",
+                messagingSenderId: "85483311241",
+                appId: "1:85483311241:web:9edcb94300e2b9f85fb658"
+            };
+
+            const mainAdmin = {
+                email: "abirxxdbrine2024@gmail.com",
+                name: "Abir Biswas",
+                password: "#youtuber#69#",
+                role: "Director"
+            };
+
+            const roles = [
+                "Director",
+                "Audio Director",
+                "Videographer",
+                "Video Editor",
+                "Photographer",
+                "Graphic Designer",
+                "Member"
+            ];
+
+            const app = initializeApp(firebaseConfig);
+            const auth = getAuth(app);
+            const db = getFirestore(app);
+
+            const registerForm = document.getElementById("registerForm");
+            const loginForm = document.getElementById("loginForm");
+            const authMessage = document.getElementById("authMessage");
+            const rollSelect = document.getElementById("registerRoll");
+            const dashboard = document.getElementById("dashboard");
+            const adminAuth = document.getElementById("adminAuth");
+            const applicationList = document.getElementById("applicationList");
+            const currentAdminName = document.getElementById("currentAdminName");
+            const logoutButton = document.getElementById("logoutButton");
+            let unsubscribeApplications = null;
+            let contentEditorInitialized = false;
+
+            for (let roll = 1; roll <= 51; roll += 1) {
+                const option = document.createElement("option");
+                option.value = String(roll);
+                option.textContent = String(roll);
+                rollSelect.append(option);
+            }
+
+            document.querySelectorAll(".admin-tab").forEach((tab) => {
+                tab.addEventListener("click", () => {
+                    switchAuthTab(tab.dataset.tab);
+                    setMessage("");
+                });
+            });
+
+            document.querySelectorAll(".toggle-password").forEach((button) => {
+                button.addEventListener("click", () => {
+                    const input = document.getElementById(button.dataset.target);
+                    const icon = button.querySelector("i");
+                    const shouldShow = input.type === "password";
+                    input.type = shouldShow ? "text" : "password";
+                    icon.className = shouldShow ? "fa-solid fa-eye-slash" : "fa-solid fa-eye";
+                    button.setAttribute("aria-label", shouldShow ? "Hide password" : "Show password");
+                });
+            });
+
+            registerForm.addEventListener("submit", async (event) => {
+                event.preventDefault();
+                const formData = new FormData(registerForm);
+                const email = String(formData.get("email")).trim().toLowerCase();
+                const password = String(formData.get("password"));
+                const isMainAdmin = email === mainAdmin.email.toLowerCase() && password === mainAdmin.password;
+
+                setMessage("Submitting registration...");
+
+                try {
+                    const credential = await createUserWithEmailAndPassword(auth, email, password);
+                    const profile = {
+                        email,
+                        name: isMainAdmin ? mainAdmin.name : String(formData.get("name")).trim(),
+                        class: String(formData.get("class")),
+                        roll: String(formData.get("roll")),
+                        section: String(formData.get("section")),
+                        role: isMainAdmin ? mainAdmin.role : "Member",
+                        status: isMainAdmin ? "approved" : "pending",
+                        isAdmin: isMainAdmin,
+                        createdAt: serverTimestamp(),
+                        updatedAt: serverTimestamp()
+                    };
+
+                    await setDoc(doc(db, "users", credential.user.uid), profile);
+                    await setDoc(doc(db, "applications", credential.user.uid), {
+                        ...profile,
+                        uid: credential.user.uid
+                    });
+
+                    registerForm.reset();
+                    setMessage(isMainAdmin ? "Director account created. Opening dashboard..." : "Application submitted. Only approved admins can use the login tab.", "success");
+
+                    if (isMainAdmin) {
+                        openDashboard(profile);
+                    } else {
+                        await signOut(auth);
+                    }
+                } catch (error) {
+                    setMessage(formatFirebaseError(error));
+                }
+            });
+
+            loginForm.addEventListener("submit", async (event) => {
+                event.preventDefault();
+                const formData = new FormData(loginForm);
+                const email = String(formData.get("email")).trim().toLowerCase();
+                const password = String(formData.get("password"));
+
+                setMessage("Checking account...");
+
+                try {
+                    const credential = await signInWithEmailAndPassword(auth, email, password);
+                    const userSnap = await getDoc(doc(db, "users", credential.user.uid));
+                    const isMainAdmin = email === mainAdmin.email.toLowerCase() && password === mainAdmin.password;
+
+                    if (!userSnap.exists()) {
+                        if (isMainAdmin) {
+                            const profile = await saveMainAdminProfile(credential.user.uid);
+                            setMessage("Director profile restored. Opening dashboard...", "success");
+                            openDashboard(profile);
+                            return;
+                        }
+
+                        await signOut(auth);
+                        setMessage("This login is for admins only. Please register from the Register tab if you want to apply.");
+                        return;
+                    }
+
+                    const profile = userSnap.data();
+                    if (!isAdminProfile(profile)) {
+                        await signOut(auth);
+                        setMessage("This login is for admins only. Your application is saved, but applicants do not log in here.");
+                        return;
+                    }
+
+                    setMessage("Login successful. Opening dashboard...", "success");
+                    openDashboard(profile);
+                } catch (error) {
+                    if (error.code === "auth/user-not-found") {
+                        setMessage("Admin does not exist. Please register first.");
+                    } else if (error.code === "auth/invalid-credential") {
+                        setMessage("No account matched that email and password. Check the password, or register first if this email is new.");
+                    } else {
+                        setMessage(formatFirebaseError(error));
+                    }
+                }
+            });
+
+            logoutButton.addEventListener("click", async () => {
+                await signOut(auth);
+                closeDashboard();
+                setMessage("Logged out.", "success");
+            });
+
+            onAuthStateChanged(auth, async (user) => {
+                if (!user) {
+                    closeDashboard();
+                    return;
+                }
+
+                const userSnap = await getDoc(doc(db, "users", user.uid));
+                if (userSnap.exists() && isAdminProfile(userSnap.data())) {
+                    openDashboard(userSnap.data());
+                } else {
+                    await signOut(auth);
+                    closeDashboard();
+                }
+            });
+
+            function openDashboard(profile) {
+                adminAuth.classList.add("is-hidden");
+                dashboard.classList.remove("is-hidden");
+                currentAdminName.textContent = `${profile.name} · ${profile.role}`;
+                window.location.hash = "dashboard";
+                watchApplications();
+                initContentEditor();
+            }
+
+            function closeDashboard() {
+                adminAuth.classList.remove("is-hidden");
+                dashboard.classList.add("is-hidden");
+                if (unsubscribeApplications) {
+                    unsubscribeApplications();
+                    unsubscribeApplications = null;
+                }
+            }
+
+            function watchApplications() {
+                if (unsubscribeApplications) {
+                    unsubscribeApplications();
+                }
+
+                unsubscribeApplications = onSnapshot(query(collection(db, "applications")), (snapshot) => {
+                    if (snapshot.empty) {
+                        applicationList.innerHTML = '<p class="empty-state"><i class="fa-regular fa-folder-open"></i>No applications yet.</p>';
+                        return;
+                    }
+
+                    applicationList.innerHTML = "";
+                    snapshot.forEach((documentSnapshot) => {
+                        applicationList.append(createApplicationCard(documentSnapshot.id, documentSnapshot.data()));
+                    });
+                }, (error) => {
+                    applicationList.innerHTML = `<p class="empty-state"><i class="fa-solid fa-triangle-exclamation"></i>${formatFirebaseError(error)}</p>`;
+                });
+            }
+
+            function createApplicationCard(uid, application) {
+                const card = document.createElement("article");
+                card.className = "application-card";
+
+                const selectedRole = application.role || "Member";
+                const roleOptions = roles.map((role) => `<option value="${role}" ${role === selectedRole ? "selected" : ""}>${role}</option>`).join("");
+                const status = application.status || "pending";
+
+                card.innerHTML = `
+                    <div class="application-main">
+                        <div>
+                            <span class="status-pill ${status}">${status}</span>
+                            <h3>${escapeHtml(application.name || "Unnamed applicant")}</h3>
+                            <p>${escapeHtml(application.email || "No email")}</p>
+                        </div>
+                        <div class="application-meta">
+                            <span><i class="fa-solid fa-school"></i>Class ${escapeHtml(application.class || "N/A")}</span>
+                            <span><i class="fa-solid fa-layer-group"></i>Section ${escapeHtml(application.section || "N/A")}</span>
+                            <span><i class="fa-solid fa-hashtag"></i>Roll ${escapeHtml(application.roll || "N/A")}</span>
+                        </div>
+                    </div>
+                    <div class="application-actions">
+                        <label>
+                            Role
+                            <select class="role-select">${roleOptions}</select>
+                        </label>
+                        <button type="button" class="approve-button"><i class="fa-solid fa-check"></i>Approve</button>
+                        <button type="button" class="reject-button"><i class="fa-solid fa-xmark"></i>Reject</button>
+                    </div>
+                `;
+
+                card.querySelector(".approve-button").addEventListener("click", () => updateApplication(uid, card, "approved"));
+                card.querySelector(".reject-button").addEventListener("click", () => updateApplication(uid, card, "rejected"));
+                return card;
+            }
+
+            async function updateApplication(uid, card, status) {
+                const role = card.querySelector(".role-select").value;
+                const updates = {
+                    role,
+                    status,
+                    updatedAt: serverTimestamp()
+                };
+
+                await updateDoc(doc(db, "applications", uid), updates);
+                await setDoc(doc(db, "users", uid), updates, { merge: true });
+                // When an application is approved or rejected, remove it from the applications list
+                if (status === "approved" || status === "rejected") {
+                    try {
+                        await deleteDoc(doc(db, "applications", uid));
+                    } catch (err) {
+                        // ignore deletion errors - UI will update via snapshot
+                        console.error("Failed to delete application:", err);
+                    }
+                }
+            }
+
+            async function saveMainAdminProfile(uid) {
+                const profile = {
+                    email: mainAdmin.email.toLowerCase(),
+                    name: mainAdmin.name,
+                    class: "N/A",
+                    roll: "N/A",
+                    section: "N/A",
+                    role: mainAdmin.role,
+                    status: "approved",
+                    isAdmin: true,
+                    updatedAt: serverTimestamp()
+                };
+
+                await setDoc(doc(db, "users", uid), {
+                    ...profile,
+                    createdAt: serverTimestamp()
+                }, { merge: true });
+                await setDoc(doc(db, "applications", uid), {
+                    ...profile,
+                    uid,
+                    createdAt: serverTimestamp()
+                }, { merge: true });
+
+                return profile;
+            }
+
+            function isAdminProfile(profile) {
+                return profile && profile.status === "approved" && profile.role === "Director";
+            }
+
+            function setMessage(message, type = "error") {
+                authMessage.textContent = message;
+                authMessage.className = `admin-message ${message ? type : ""}`;
+            }
+
+            function switchAuthTab(selectedTab) {
+                document.querySelectorAll(".admin-tab").forEach((item) => {
+                    const isSelected = item.dataset.tab === selectedTab;
+                    item.classList.toggle("is-active", isSelected);
+                    item.setAttribute("aria-selected", String(isSelected));
+                });
+                document.querySelectorAll(".admin-form").forEach((panel) => {
+                    panel.classList.toggle("is-active", panel.dataset.panel === selectedTab);
+                });
+            }
+
+            function formatFirebaseError(error) {
+                if (!error || !error.code) {
+                    return "Something went wrong. Please try again.";
+                }
+
+                const messages = {
+                    "auth/configuration-not-found": "Firebase Authentication is not enabled for this project. In Firebase Console, open Authentication, click Get started, then enable Email/Password sign-in.",
+                    "auth/email-already-in-use": "This email is already registered. Try logging in.",
+                    "auth/invalid-email": "Enter a valid email address.",
+                    "auth/operation-not-allowed": "Email/Password sign-in is disabled. Enable it in Firebase Console > Authentication > Sign-in method.",
+                    "auth/unauthorized-domain": "This domain is not allowed for Firebase Auth. Add it in Firebase Console > Authentication > Settings > Authorized domains.",
+                    "auth/weak-password": "Password should be at least 6 characters.",
+                    "auth/wrong-password": "Wrong password.",
+                    "permission-denied": "Firebase denied this request. Open Firebase Console > Firestore Database > Rules, paste the firestore.rules file from this project, then click Publish."
+                };
+
+                return messages[error.code] || error.message;
+            }
+
+            function escapeHtml(value) {
+                return String(value)
+                    .replaceAll("&", "&amp;")
+                    .replaceAll("<", "&lt;")
+                    .replaceAll(">", "&gt;")
+                    .replaceAll('"', "&quot;")
+                    .replaceAll("'", "&#039;");
+            }
+
+            // ----- Content editor: load / render / save site content -----
+            async function initContentEditor() {
+                if (contentEditorInitialized) return;
+                contentEditorInitialized = true;
+                const siteRef = doc(db, "site", "main");
+
+                // Load current content
+                try {
+                    const snap = await getDoc(siteRef);
+                    const site = snap.exists() ? snap.data() : {};
+                    populateIndex(site.index || {});
+                    populateWorks(site.works || {});
+                    populateContact(site.contact || {});
+                } catch (err) {
+                    console.error("Failed to load site content:", err);
+                    showContentMessage("Failed to load site content.", "error");
+                }
+
+                // Wire up add buttons (guarding against missing elements)
+                const addIndexBtn = document.getElementById("addIndexSection");
+                if (addIndexBtn) addIndexBtn.addEventListener("click", addIndexSectionEditor);
+
+                const addFilterBtn = document.getElementById("addFilter");
+                if (addFilterBtn) addFilterBtn.addEventListener("click", () => addSimpleListItem("filtersEditor", "filter"));
+
+                const addClubBtn = document.getElementById("addClub");
+                if (addClubBtn) addClubBtn.addEventListener("click", () => addSimpleListItem("clubsEditor", "club"));
+
+                const addWorkBtn = document.getElementById("addWork");
+                if (addWorkBtn) addWorkBtn.addEventListener("click", addWorkEditor);
+
+                const addContactBtn = document.getElementById("addContactCard");
+                if (addContactBtn) addContactBtn.addEventListener("click", addContactCardEditor);
+
+                // Wire up save buttons with error handling
+                const saveIndexBtn = document.getElementById("saveIndexContent");
+                if (saveIndexBtn) saveIndexBtn.addEventListener("click", async () => {
+                    const index = gatherIndexContent();
+                    try {
+                        await setDoc(siteRef, { index }, { merge: true });
+                        showContentMessage("Index content saved.", "success");
+                    } catch (err) {
+                        console.error(err);
+                        showContentMessage("Failed to save index content.", "error");
+                    }
+                });
+
+                const saveWorksBtn = document.getElementById("saveWorksContent");
+                if (saveWorksBtn) saveWorksBtn.addEventListener("click", async () => {
+                    const works = gatherWorksContent();
+                    try {
+                        await setDoc(siteRef, { works }, { merge: true });
+                        showContentMessage("Works content saved.", "success");
+                    } catch (err) {
+                        console.error(err);
+                        showContentMessage("Failed to save works content.", "error");
+                    }
+                });
+
+                const saveContactBtn = document.getElementById("saveContactContent");
+                if (saveContactBtn) saveContactBtn.addEventListener("click", async () => {
+                    const contact = gatherContactContent();
+                    try {
+                        await setDoc(siteRef, { contact }, { merge: true });
+                        showContentMessage("Contact content saved.", "success");
+                    } catch (err) {
+                        console.error(err);
+                        showContentMessage("Failed to save contact content.", "error");
+                    }
+                });
+            }
+
+            function showContentMessage(msg, type = "success") {
+                const el = document.getElementById("contentMessage");
+                el.textContent = msg;
+                el.className = `admin-message ${type}`;
+                setTimeout(() => { el.textContent = ""; el.className = "admin-message"; }, 4000);
+            }
+
+            // Index helpers
+            function populateIndex(index) {
+                document.getElementById("teamTitle").value = index.teamTitle || "";
+                document.getElementById("teamImage").value = index.teamImage || "";
+                document.getElementById("teamText").value = index.teamText || "";
+                const container = document.getElementById("indexSectionsEditor");
+                container.innerHTML = "";
+                (index.extraSections || []).forEach((sec) => renderIndexSectionEditor(sec, container));
+            }
+
+            function addIndexSectionEditor() {
+                const container = document.getElementById("indexSectionsEditor");
+                const newSec = { id: String(Date.now()) + Math.random().toString(36).slice(2), title: "", image: "", text: "" };
+                renderIndexSectionEditor(newSec, container);
+            }
+
+            function renderIndexSectionEditor(section, container) {
+                const item = document.createElement("div");
+                item.className = "editor-item";
+                item.dataset.id = section.id;
+                item.innerHTML = `
+                    <div class="editor-item-row">
+                        <input class="section-title" placeholder="Section title" value="${escapeHtml(section.title || "")}">
+                        <input class="section-image" placeholder="Image URL" value="${escapeHtml(section.image || "")}">
+                        <button class="mini-action delete-item">Delete</button>
+                    </div>
+                    <textarea class="section-text" placeholder="Section text">${escapeHtml(section.text || "")}</textarea>
+                `;
+                item.querySelector(".delete-item").addEventListener("click", () => item.remove());
+                container.append(item);
+            }
+
+            function gatherIndexContent() {
+                const teamTitle = document.getElementById("teamTitle").value;
+                const teamImage = document.getElementById("teamImage").value;
+                const teamText = document.getElementById("teamText").value;
+                const sections = Array.from(document.getElementById("indexSectionsEditor").children).map((el) => ({
+                    id: el.dataset.id || (String(Date.now()) + Math.random()),
+                    title: el.querySelector('.section-title').value,
+                    image: el.querySelector('.section-image').value,
+                    text: el.querySelector('.section-text').value
+                }));
+
+                return { teamTitle, teamImage, teamText, extraSections: sections };
+            }
+
+            // Works helpers
+            function populateWorks(works) {
+                const filters = works.filters || [];
+                const clubs = works.clubs || [];
+                const workItems = works.works || [];
+
+                const filtersContainer = document.getElementById("filtersEditor");
+                const clubsContainer = document.getElementById("clubsEditor");
+                const worksContainer = document.getElementById("worksEditor");
+
+                filtersContainer.innerHTML = "";
+                filters.forEach((f) => renderSimpleListItem(filtersContainer, f, "filter"));
+
+                clubsContainer.innerHTML = "";
+                clubs.forEach((c) => renderSimpleListItem(clubsContainer, c, "club"));
+
+                worksContainer.innerHTML = "";
+                workItems.forEach((w) => renderWorkEditor(w, worksContainer));
+            }
+
+            function addSimpleListItem(containerId, type) {
+                const container = document.getElementById(containerId);
+                renderSimpleListItem(container, { id: String(Date.now()) + Math.random().toString(36).slice(2), value: "" }, type, true);
+            }
+
+            function renderSimpleListItem(container, item, type, emptyValue = false) {
+                const el = document.createElement("div");
+                el.className = "compact-item";
+                el.dataset.id = item.id || item;
+                el.innerHTML = `<input class="list-value" placeholder="${type} name" value="${escapeHtml(item.value || item || "")}"> <button class="mini-action delete-item">Delete</button>`;
+                el.querySelector('.delete-item').addEventListener('click', () => el.remove());
+                container.append(el);
+            }
+
+            function addWorkEditor() {
+                const container = document.getElementById("worksEditor");
+                const newWork = { id: String(Date.now()) + Math.random().toString(36).slice(2), title: "", club: "", filter: "", image: "", description: "", status: "ongoing" };
+                renderWorkEditor(newWork, container);
+            }
+
+            function renderWorkEditor(work, container) {
+                const el = document.createElement('div');
+                el.className = 'editor-item';
+                el.dataset.id = work.id;
+                el.innerHTML = `
+                    <div class="editor-item-row">
+                        <input class="work-title" placeholder="Work title" value="${escapeHtml(work.title || '')}">
+                        <input class="work-club" placeholder="Club name" value="${escapeHtml(work.club || '')}">
+                        <input class="work-filter" placeholder="Filter/category" value="${escapeHtml(work.filter || '')}">
+                        <input class="work-image" placeholder="Image URL" value="${escapeHtml(work.image || '')}">
+                        <button class="mini-action delete-item">Delete</button>
+                    </div>
+                    <textarea class="work-description" placeholder="Description">${escapeHtml(work.description || '')}</textarea>
+                    <div class="editor-item-row">
+                        <label>State <select class="work-status"><option value="ongoing" ${work.status === 'ongoing' ? 'selected' : ''}>Ongoing</option><option value="done" ${work.status === 'done' ? 'selected' : ''}>Done</option></select></label>
+                    </div>
+                `;
+                el.querySelector('.delete-item').addEventListener('click', () => el.remove());
+                container.append(el);
+            }
+
+            function gatherWorksContent() {
+                const filters = Array.from(document.getElementById('filtersEditor').children).map((el) => el.querySelector('.list-value').value);
+                const clubs = Array.from(document.getElementById('clubsEditor').children).map((el) => el.querySelector('.list-value').value);
+                const works = Array.from(document.getElementById('worksEditor').children).map((el) => ({
+                    id: el.dataset.id || (String(Date.now()) + Math.random()),
+                    title: el.querySelector('.work-title').value,
+                    club: el.querySelector('.work-club').value,
+                    filter: el.querySelector('.work-filter').value,
+                    image: el.querySelector('.work-image').value,
+                    description: el.querySelector('.work-description').value,
+                    status: el.querySelector('.work-status').value
+                }));
+
+                return { filters, clubs, works };
+            }
+
+            // Contact helpers
+            function populateContact(contact) {
+                const container = document.getElementById('contactCardsEditor');
+                container.innerHTML = '';
+                (contact.cards || []).forEach((c) => renderContactCardEditor(c, container));
+                document.getElementById('callTitle').value = contact.callTitle || '';
+                document.getElementById('callEmail').value = contact.callEmail || '';
+                document.getElementById('callIntro').value = contact.callIntro || '';
+                document.getElementById('callSteps').value = (contact.callSteps || []).join('\n');
+            }
+
+            function addContactCardEditor() {
+                const container = document.getElementById('contactCardsEditor');
+                const card = { id: String(Date.now()) + Math.random().toString(36).slice(2), name: '', role: '', email: '', phone: '' };
+                renderContactCardEditor(card, container);
+            }
+
+            function renderContactCardEditor(card, container) {
+                const el = document.createElement('div');
+                el.className = 'editor-item';
+                el.dataset.id = card.id;
+                el.innerHTML = `
+                    <div class="editor-item-row">
+                        <input class="contact-name" placeholder="Name" value="${escapeHtml(card.name || '')}">
+                        <input class="contact-role" placeholder="Role" value="${escapeHtml(card.role || '')}">
+                        <input class="contact-email" placeholder="Email" value="${escapeHtml(card.email || '')}">
+                        <input class="contact-phone" placeholder="Phone" value="${escapeHtml(card.phone || '')}">
+                        <button class="mini-action delete-item">Delete</button>
+                    </div>
+                `;
+                el.querySelector('.delete-item').addEventListener('click', () => el.remove());
+                container.append(el);
+            }
+
+            function gatherContactContent() {
+                const cards = Array.from(document.getElementById('contactCardsEditor').children).map((el) => ({
+                    id: el.dataset.id || (String(Date.now()) + Math.random()),
+                    name: el.querySelector('.contact-name').value,
+                    role: el.querySelector('.contact-role').value,
+                    email: el.querySelector('.contact-email').value,
+                    phone: el.querySelector('.contact-phone').value
+                }));
+
+                const callTitle = document.getElementById('callTitle').value;
+                const callEmail = document.getElementById('callEmail').value;
+                const callIntro = document.getElementById('callIntro').value;
+                const callSteps = document.getElementById('callSteps').value.split('\n').map(s => s.trim()).filter(Boolean);
+
+                return { cards, callTitle, callEmail, callIntro, callSteps };
+            }
+        </script>
+    </body>
+</html>
